@@ -1,0 +1,72 @@
+﻿<Window
+    x:Class="RotatingStrokesAdorner.MainWindow"       
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+    xmlns:local="clr-namespace:RotatingStrokesAdorner"       
+    mc:Ignorable="d"       
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"       
+    Background="{DynamicResource MaterialDesignPaper}"       
+    FontFamily="{materialDesign:MaterialDesignFont}"       
+    TextElement.FontWeight="Medium"       
+    TextElement.FontSize="14"       
+    Title="Rotating Strokes Adorner"       
+    Loaded="Window_Loaded"       
+    WindowState="Maximized"        
+    WindowStyle="None"       
+    Width="800"       
+    Height="450"       
+    AllowsTransparency="True"
+  >
+
+	<Grid>
+		<InkCanvas x:Name="WhiteBoard">
+			<Rectangle 
+				x:Name="shape" 
+        Height="{Binding ElementName=sliderScale,Path=Value}" 
+        Width="{Binding ElementName=sliderScale,Path=Value}"               
+        IsManipulationEnabled="True" 
+        ManipulationStarting="Rectangle_ManipulationStarting" 
+        ManipulationDelta="Rectangle_ManipulationDelta" 
+        InkCanvas.Left="755" 
+        InkCanvas.Top="400"  
+				RadiusX="5"
+				RadiusY="5"				
+      />
+
+			<Slider 
+				x:Name="sliderRotate" 
+				ToolTip="Rotate"
+        Width="270" 
+        Height="25" 
+        Foreground="#FF007EDF" 
+        InkCanvas.Top="950" 
+        InkCanvas.Left="1220" 
+				TickPlacement="BottomRight" 
+				TickFrequency="100"	
+        Maximum="360"  
+        ValueChanged="SliderRotate_ValueChanged" 
+       />
+			
+			<Slider 
+				x:Name="sliderScale" 
+				ToolTip="Scale"
+        Width="270" 
+        Height="25" 
+        Foreground="#FF007EDF" 
+        InkCanvas.Top="900" 
+        InkCanvas.Left="1220" 
+				Minimum="300"
+        Maximum="900" 
+				Value="150"
+				TickPlacement="BottomRight" 
+				TickFrequency="100"				
+       />
+
+		</InkCanvas>
+
+	</Grid>
+
+</Window>

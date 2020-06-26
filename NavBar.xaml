@@ -1,0 +1,377 @@
+﻿<Window
+		x:Class="RotatingStrokesAdorner.NavBar"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:RotatingStrokesAdorner"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+		mc:Ignorable="d" 
+		Loaded="Window_Loaded" 
+		Title="NavBar"         
+		Width="990"  
+		Height="80"
+		Top="1000"
+		Left="495"
+		Background="Transparent"       
+		Topmost="True" 
+		AllowsTransparency="True" 
+		WindowStyle="None" 
+		WindowStartupLocation="Manual" 
+		HorizontalAlignment="Left" 
+		VerticalAlignment="Center" 
+		ResizeMode="NoResize"    
+	>
+
+	<ToolBarTray>
+		<ToolBar Style="{DynamicResource MaterialDesignToolBar}" Padding="8" Height="80" Margin="0,0,-25,0">
+
+			<Border x:Name="drag" MouseLeftButtonDown="Drag_MouseDown" Background="Transparent">
+				<materialDesign:PackIcon x:Name="IconDrag" Kind="DragVertical" Width="30" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+			</Border>
+
+			<Separator  />
+
+			<!--==================== Free ====================-->
+			<!-- GotFocus="OnGotFocusHandler" LostFocus="OnLostFocusHandler" -->
+			<materialDesign:Badged                
+					x:Name="badgeFree"
+					Badge="Livre"
+					BadgeForeground="#333"
+					BadgeBackground="#FFe5e5e5"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Free" 
+					Click="Free_Click"  
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="ArrowUpLeftThick" Width="24" Height="24" />
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15" />
+
+			<!--==================== Pen ====================-->
+
+			<materialDesign:Badged                
+				 x:Name="badgePen"
+				 Badge="Caneta"
+				 BadgeForeground="#333"
+				 BadgeBackground="#FFe5e5e5"
+				 HorizontalAlignment="Center"
+				 VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Pen"
+					Click="Pen_Click" 
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="Pen" Width="24" Height="24" />
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15" />
+
+			<!--==================== HighLighter ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeHighlighter"
+				Badge="Marcar"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="HighLighter" 
+					Click="HighLighter_Click"  
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF" 
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="Highlighter" Width="22" Height="22" />
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Eraser ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeEraser"
+				Badge="Apagar"
+				BadgeBackground="#FFe5e5e5"
+				BadgeForeground="#333"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Clear" 
+					Click="Clear_Click"
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF" 
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="Eraser" Width="24" Height="24"/>
+				</Button>
+			</materialDesign:Badged>
+
+			<Separator Margin="15" />
+
+			<!--==================== Shape Add ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeShapeAdd"
+				Badge="Formas"
+				BadgeBackground="#FFe5e5e5"
+				BadgeForeground="#333"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="ShapeAdd"
+					Click="ShapeAdd_Click" 
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton"
+					>
+					<materialDesign:PackIcon Kind="ShapeAdd" Width="24" Height="24"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Insert Chart ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeInsertChart"
+				Badge="Fundos"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="InsertChart"
+					Click="InsertChart_Click"
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton"
+					>
+					<materialDesign:PackIcon Kind="InsertChart" Width="24" Height="24"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Select ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeSelect"
+				Badge="Selecionar"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Select"
+					Click="Select_Click"
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton"
+					>
+					<materialDesign:PackIcon Kind="Select" Width="24" Height="24"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Undo ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeUndo"
+				Badge="Desfazer"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Undo" 
+					Click="Undo_Click"
+					Background="#FF007EDF"
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+					HorizontalAlignment="Stretch" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="Undo" Width="24" Height="24"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Redo ====================-->
+
+			<materialDesign:Badged
+				Badge="Refazer"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Redo"
+					Click="Redo_Click" 
+					Background="#FF007EDF"
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+					HorizontalAlignment="Stretch" 
+					ToolTip="MaterialDesignFloatingActionMiniButton"
+					>
+					<materialDesign:PackIcon Kind="Redo" Width="24" Height="24"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Line ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeLine"
+				Badge="Linha"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Line" 
+					Click="Line_Click"
+					Background="#FF007EDF"
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+					HorizontalAlignment="Stretch" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="Circle" Foreground="Red" Width="12" Height="12" />
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Color ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeColor"
+				Badge="Cor"
+				BadgeForeground="#333"               
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Color"
+					Click="Color_Click"
+					Background="#FF007EDF"
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+					ToolTip="MaterialDesignFloatingActionMiniButton"
+					>
+					<materialDesign:PackIcon Kind="Square" Foreground="Red" Width="22" Height="22"/>
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Slide ====================-->
+
+			<materialDesign:Badged
+				x:Name="badgeSlide"
+				Badge="1/10"
+				BadgeForeground="#333"
+				BadgeBackground="#FFe5e5e5"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				>
+				<Button 
+					x:Name="Slide"
+					Click="Slide_Click" 
+					Background="#FF007EDF" 
+					BorderBrush="#FF007EDF"
+					Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+					HorizontalAlignment="Center" 
+					ToolTip="MaterialDesignFloatingActionMiniButton" 
+					>
+					<materialDesign:PackIcon Kind="AnimationOutline" Width="26" Height="26" />
+				</Button>
+
+			</materialDesign:Badged>
+
+			<Separator Margin="15"/>
+
+			<!--==================== Pop up ====================-->
+
+			<materialDesign:PopupBox  Padding="8">
+				<materialDesign:PopupBox.ToggleContent >
+					<materialDesign:PackIcon Kind="DotsHorizontal" VerticalAlignment="Center" Width="30" Height="60"/>
+				</materialDesign:PopupBox.ToggleContent>
+
+				<ToolBarPanel Width="230" Background="#FFF5F5F5" >
+					<ListBox Foreground="#333" Background="#FFF5F5F5" >
+						<materialDesign:PackIcon Kind="Hide" VerticalAlignment="Center" />
+						<TextBlock Width="222" VerticalAlignment="Center" HorizontalAlignment="Center">  Esconder lousa</TextBlock>
+					</ListBox>
+					<Separator/>
+					<ListBox Foreground="#333" Background="#FFF5F5F5">
+						<materialDesign:PackIcon Kind="ContentSave" VerticalAlignment="Center"/>
+						<TextBlock Width="222"> Salvar apresentação</TextBlock>
+					</ListBox>
+					<Separator/>
+					<ListBox Foreground="#333" Background="#FFF5F5F5">
+						<materialDesign:PackIcon Kind="Export" VerticalAlignment="Center"/>
+						<TextBlock Width="222"> Exportar apresentação</TextBlock>
+					</ListBox>
+					<Separator/>
+					<ListBox Foreground="#333" Background="#FFF5F5F5">
+						<materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+						<TextBlock Width="222"> Configurações</TextBlock>
+					</ListBox>
+				</ToolBarPanel>
+
+			</materialDesign:PopupBox>
+
+		</ToolBar>
+	</ToolBarTray>
+</Window>
